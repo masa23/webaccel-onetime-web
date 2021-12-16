@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>ウェブアクセラレータ 動作確認用 ワンタイムURL 生成ツール</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container p-3 px-md-4 mb-3 border-bottom shadow-sm">
+      <div class="panel panel-default card-body">
+          <h1 class="panel-heading card-title">ウェブアクセラレータ 動作確認用 ワンタイムURL 生成ツール</h1>
+          <div class="panel-body">
+          <form id="form" class="form-horizontal">
+            <div class="classform-group">
+              <label class="control-label">ベースURL</label>
+              <input class="form-control" type="text" id="url" value="https://example.user.webaccel.jp">
+            </div>
+            <div class="classform-group">
+              <label class="control-label">ファイルパス</label>
+              <input class="form-control" type="text" id="path" value="/index.html">
+            </div>
+            <div class="classform-group">
+              <label class="control-label">シークレットキー</label>
+              <input class="form-control" type="text" id="secret">
+            </div>
+            <div class="classform-group">
+              <label class="control-label">有効期限</label>
+              <input class="form-control" type="datetime-local" id="datetime">
+            </div>
+          </form>
+        </div>
+        <div class="classform-group card-body">
+          <div class="alert alert-success">
+            <label class="control-label">生成URL</label>
+            <div id="output_url"></div>
+          </div>
+        </div>
+      </div>
+      <div class="alert alert-info">
+        <span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+          info
+        </span>
+        <ul>
+          <li>md5のライブラリとして<a href="https://labs.cybozu.co.jp/blog/mitsunari/2007/07/md5js_1.html">md5.js</a>を利用させていただいています。</li>
+          <li>ブラウザの時刻をベースにするため、ブラウザをご利用のパソコンの時刻がズレていないことを確認してください。</li>
+          <li>ブラウザで処理するため、シークレットは外部に送信していません。</li>
+          <li>あくまで動作確認用のURL生成ツールのため、実際にご利用の際はシークレットは外部に流出しないようご注意ください。</li>
+          <li>有効期限はJSTになります。</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./js/md5.js"></script>
+    <script src="./js/onetime.js"></script>
+  </body>
+</html>
